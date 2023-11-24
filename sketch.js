@@ -23,7 +23,7 @@ let enemy_spawn_zones;
 
 function setup() { 
   background_image = loadImage("images/stars.png");
-  pixelDensity(1);
+  pixelDensity(0.5);
   frameRate(60);
   createCanvas(window.innerWidth, window.innerHeight);
   
