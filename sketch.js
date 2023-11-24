@@ -25,7 +25,7 @@ let enemy_spawn_zones;
 let right_vector;
 
 function setup() { 
-  alert("newest version 4");
+  alert("newest version 5");
   right_vector = createVector(1, 0);
   pixelDensity(1);
   frameRate(60);
