@@ -104,7 +104,7 @@ function draw() {
   push();
   rotate(PI/2);
   tint(255, 255, 255, 255);
-  blendMode(MULTIPLY)
+  //blendMode(MULTIPLY)
   image(background_image, 0, -background_image.height);
   pop();
   
