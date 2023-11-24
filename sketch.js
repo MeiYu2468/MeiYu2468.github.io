@@ -85,6 +85,7 @@ function requestMotionPermission() {
       if (response == "granted") {
         window.addEventListener("devicemotion", (e) => {
           window.addEventListener("devicemotion", phoneMoved);
+          window.addEventListener("click", shoot);
         });
       }
     })
