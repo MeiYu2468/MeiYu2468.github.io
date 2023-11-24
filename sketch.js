@@ -101,8 +101,6 @@ function phoneMoved(event) {
 }
 
 function draw() {  
-  background(255);
-  
   push();
   rotate(PI/2);
   tint(255, 255, 255, 255);
