@@ -22,7 +22,6 @@ let mode = "none"; //dead, title, pause...
 let enemy_spawn_zones;
 
 function setup() { 
-  alert("new version");
   background_image = loadImage("images/stars.png");
   pixelDensity(1);
   frameRate(60);
@@ -39,7 +38,6 @@ function setup() {
   play_button.size(150, 50);
   play_button.position(width/2 - play_button.width/2, height/3 * 2 + play_button.height + 15);
   play_button.mousePressed(change_to_game);
-  
   
   pause_button = createButton('▐▐');
   pause_button.size(40, 40);
@@ -107,8 +105,6 @@ function draw() {
   blendMode(MULTIPLY)
   image(background_image, 0, -background_image.height);
   pop();
-  
-  
   
   if (mode != "dead" && mode != "title") {
     fill(255);
