@@ -183,19 +183,19 @@ function draw() {
 
 function draw_title_screen() {
   let title = "TRIANGLE SHOOTER!";
-  let info = "Hold your phone flat, and \nTILT it to steer! \n\nTAP to shoot \nand get points by hitting! \n\nMove out of the screen to \nappear on the other side!";
+  let info = "Hold your phone flat \nand TILT to steer! \n\nTAP to shoot \nand get points by hitting! \n\nMove out of the screen to \nappear on the other side!";
   make_panel(title, info);
 }
 
 function draw_dead_screen(){
   let title = "You died!"
- let info = "Hold your phone flat, and \nTILT it to steer! \n\nTAP to shoot \nand get points by hitting! \n\nMove out of the screen to \nappear on the other side!";
+  let info = "SCORE: " + points.toFixed() + " points\n:( \n\nSurvived for " + survived_seconds.toFixed(3) + " seconds \nShot " + shot_enemies + " enemies";
   make_panel(title, info);
 }
 
 function draw_pause_screen() {
   let title = "Game PAUSED";
-  let info = "TILT your phone to steer! \nTAP to shoot \n -Get points by hitting! \n\nMove out of the screen to \nappear on the other side!";
+  let info = "Hold your phone flat \nand TILT to steer! \n\nTAP to shoot \nand get points by hitting! \n\nMove out of the screen to \nappear on the other side!";
   make_panel(title, info);
 }
 
