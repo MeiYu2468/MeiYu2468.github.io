@@ -25,7 +25,7 @@ let enemy_spawn_zones;
 let right_vector;
 
 function setup() { 
-  alert("newest version 3");
+  alert("newest version 4");
   right_vector = createVector(1, 0);
   pixelDensity(1);
   frameRate(60);
@@ -83,14 +83,11 @@ function set_start_values(){
 //På iphone skal man have tilladelse til at anvende devicemotions
 //nedenstående funktion kaldes fra tryk på en knap
 function requestMotionPermission() {
-  requestMotionPermission.hide();
+  request_permission.hide();
   DeviceMotionEvent.requestPermission()
     .then((response) => {
       if (response == "granted") {
-        window.addEventListener("devicemotion", (e) => {
-          window.addEventListener("devicemotion", phoneMoved);
-          window.addEventListener("click", shoot);
-        });
+        window.addEventListener("devicemotion", phoneMoved);
       }
     })
     .catch(console.error);
