@@ -91,6 +91,7 @@ function requestMotionPermission() {
       }
     })
     .catch(console.error);
+  window.addEventListener("touchstart", shoot);
 }
 
 //Koden ovenfor har orettet en event-listner på devicemotions, der kalder denne funktion
