@@ -21,7 +21,10 @@ let mode = "none"; //dead, title, pause...
 
 let enemy_spawn_zones;
 
+let right_vector;
+
 function setup() { 
+  right_vector = createVector(1, 0);
   alert("newest version 2");
   background_image = loadImage("images/stars.png");
   pixelDensity(1);
@@ -182,7 +185,7 @@ function draw() {
 
 function draw_title_screen() {
   let title = "TRIANGLE SHOOTER!";
-  let info = "TILT to steer! \nTAP to shoot \n -Get points by hitting! \n\nMove out of the screen to \nappear on the other side!";
+  let info = "TILT your phone to steer! \nTAP to shoot \n -Get points by hitting! \n\nMove out of the screen to \nappear on the other side!";
   make_panel(title, info);
 }
 
@@ -194,7 +197,7 @@ function draw_dead_screen(){
 
 function draw_pause_screen() {
   let title = "Game PAUSED";
-  let info = "TILT to steer! \nTAP to shoot \n -Get points by hitting! \n\nMove out of the screen to \nappear on the other side!";
+  let info = "TILT your phone to steer! \nTAP to shoot \n -Get points by hitting! \n\nMove out of the screen to \nappear on the other side!";
   make_panel(title, info);
 }
 
@@ -203,6 +206,7 @@ function make_panel(title, info){
   stroke(100);
   strokeWeight(2);
   rect(width / 8, height/10, width - width / 4, height/3*2, width/30);
+  
   noStroke();
   fill(0);
   rect(width / 8 + 5, height/10 + 5, width - width / 4 - 10, 60, width/30);
@@ -273,8 +277,7 @@ function change_to_pause() {
   mode = "pause";
 }
 
-
-//------------------------------------------------------------------------
+//------------CLASSES-----------------------------------------------------
 //------------------------------------------------------------------------
 
 class Player{
@@ -307,12 +310,10 @@ class Player{
   display(){ 
     push();
     translate(this.position.x, this.position.y);
-    rotate(createVector(1, 0).angleBetween(this.velocity));
-    
+    rotate(right_vector.angleBetween(this.velocity));
     strokeWeight(2);
     stroke(this.bcolor);
     line(this.size * 1.5 - 2, 0, this.size + 5, 0);
-    
     fill(this.bcolor);
     noStroke();
     triangle(-this.size * 1.5, -this.size, -this.size * 1.5, this.size, this.size * 1.5 , 0);
@@ -347,7 +348,6 @@ class Bullet {
     this.position = createVector(position.x + this.velocity.normalize().x * this.size * 1.5, position.y + this.velocity.normalize().y * this.size * 1.5);
     this.stop_acceleration = 0.5;
     this.local_bullet_speed = this.velocity.mag() * 3;
-    
     this.bcolor = color(random_of_two(0, 255), random_of_two(0, 255), random_of_two(0, 255));
     this.first_color = this.bcolor;
   }
@@ -407,7 +407,7 @@ class Enemy {
   display(){
     push();
     translate(this.position.x, this.position.y);
-    rotate(createVector(1, 0).angleBetween(this.velocity));
+    rotate(right_vector.angleBetween(this.velocity));
     fill(this.bcolor);
     noStroke();
     triangle(-this.size * 1.5, -this.size, -this.size * 1.5, this.size, this.size * 1.5 , 0);
