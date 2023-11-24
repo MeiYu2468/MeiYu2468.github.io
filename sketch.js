@@ -46,7 +46,7 @@ function setup() {
   pause_button.mousePressed(change_to_pause);
   
   request_permission = createButton('Request orientation permission');
-  request_permission.position(width/2 - request_permission.width/2, width/4);
+  request_permission.position(width/2 - request_permission.width/2, 100);
   request_permission.mousePressed(requestMotionPermission);
   
   sensitivity_slider = createSlider(0.3, 2, 1, 0.01);
