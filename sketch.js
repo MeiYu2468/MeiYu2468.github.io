@@ -4,32 +4,33 @@ let points;
 let survived_seconds;
 let shot_enemies;
 
+let enemy_timer;
+let enemyspawn_cooldown_seconds;
+let cooldown_low_limit = 0.2;
+
 let player;
 let shots = [];
 let enemies = [];
+
 let play_button;
 let pause_button;
 let request_permission;
 let sensitivity_slider;
 let background_image;
 
-let enemy_timer;
-let enemyspawn_cooldown_seconds;
-let cooldown_low_limit = 0.2;
-
-let mode = "none"; //dead, title, pause...
+let mode = "none"; //game, dead, title, pause
 
 let enemy_spawn_zones;
 
 let right_vector;
 
 function setup() { 
+  alert("newest version 3");
   right_vector = createVector(1, 0);
-  alert("newest version 2");
-  background_image = loadImage("images/stars.png");
   pixelDensity(1);
   frameRate(60);
   createCanvas(window.innerWidth, window.innerHeight);
+  background_image = loadImage("images/stars.png");
   
   enemy_spawn_zones = [ 
   [createVector(-20, 0), createVector(0, height)],
@@ -49,7 +50,7 @@ function setup() {
   pause_button.mousePressed(change_to_pause);
   
   request_permission = createButton('Request orientation permission');
-  request_permission.position(width/2 - request_permission.width/2, 60);
+  request_permission.position(width/2 - request_permission.width/2, 50);
   request_permission.mousePressed(requestMotionPermission);
   
   sensitivity_slider = createSlider(0.3, 2, 1, 0.01);
@@ -200,18 +201,18 @@ function draw_pause_screen() {
 }
 
 function make_panel(title, info){
-  fill(35, 35, 45, 200);
   stroke(100);
   strokeWeight(2);
+  fill(35, 35, 45, 200);
   rect(width / 8, height/10, width - width / 4, height/3*2, width/30);
   
   noStroke();
   fill(0);
   rect(width / 8 + 5, height/10 + 5, width - width / 4 - 10, 60, width/30);
-  
-  fill(255);
+
   textAlign(CENTER, CENTER);
   textSize(25);
+  fill(255);
   text(title, width/2, height/10 + 35);
   
   textAlign(CENTER, TOP);
