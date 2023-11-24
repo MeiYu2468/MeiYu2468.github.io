@@ -59,7 +59,7 @@ function setup() {
   
   //Denne simple metode virker til devicemotion events for android
   window.addEventListener("devicemotion", phoneMoved);
-  window.addEventListener("click", shoot);
+  window.addEventListener("click", () => aleret(1));
 }
 
 function set_start_values(){
