@@ -22,6 +22,7 @@ let mode = "none"; //dead, title, pause...
 let enemy_spawn_zones;
 
 function setup() { 
+  alert("new version");
   background_image = loadImage("images/stars.png");
   pixelDensity(1);
   frameRate(60);
